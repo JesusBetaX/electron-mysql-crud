@@ -51,7 +51,7 @@ const deleteProduct = async (id) => {
     await Product.destroy({
       where: {'id': id}
     });    
-    await updateList();
+    updateList();
   }
 };
 
