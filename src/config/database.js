@@ -3,11 +3,11 @@ module.exports = {
     driver: "mysql",
 
     mysql: {
+        dialect: "mysql",
         host: "localhost",
         database: "electrondb",
         username: "root",
-        password: "",
-        dialect: "mysql"
+        password: ""
     },
 
     sqlite: {
