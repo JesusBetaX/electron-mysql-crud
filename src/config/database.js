@@ -1,6 +1,6 @@
 module.exports = {
 
-    driver: "mysql",
+    driver: "sqlite",
 
     mysql: {
         dialect: "mysql", // "mariadb", 

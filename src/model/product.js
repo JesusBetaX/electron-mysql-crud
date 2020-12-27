@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../lib/database');
 
+/** Clase que representa nuestro modelo. */
 class Product extends Model { 
 
   static updateOrCreate(obj) {
@@ -17,6 +18,7 @@ class Product extends Model {
   }
 }
 
+/** Esquema de la tabla para la base de datos. */
 Product.init({
   name: {
     type: DataTypes.STRING,
@@ -34,8 +36,13 @@ Product.init({
   sequelize, modelName: 'product' 
 });
 
-module.exports = Product;
 
+/** Crea la tabla si no existe. */
+Product.sync();
+
+
+/** Public */
+module.exports = Product;
 
 /*
 const { Sequelize, Model, DataTypes } = require('sequelize');
