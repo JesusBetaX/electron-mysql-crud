@@ -4,10 +4,7 @@ const { driver, mysql, sqlite } = require('../config/database')
 function newSequelize() {
   switch(driver) {
     case "mysql":
-      return new Sequelize(
-        mysql.database, 
-        mysql.username, 
-        mysql.password, {
+      return new Sequelize(mysql.database, mysql.username, mysql.password, {
           host: mysql.host,
           dialect: mysql.dialect
         }
