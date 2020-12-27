@@ -13,11 +13,12 @@ const productDescription = document.querySelector("#description");
 
 let products = [];
 
-
+/** Al cargar la paguina. */
 window.onload = function() {
   updateList();
 }
 
+/** Evento del formulario para crear y actualizar productos. */
 productForm.addEventListener("submit", async (e) => {
   try {
     e.preventDefault();
@@ -43,6 +44,7 @@ productForm.addEventListener("submit", async (e) => {
   }
 });
 
+/** Elimina un producto. */
 const deleteProduct = async (id) => {
   const response = confirm("Are you sure you want to delete it?");
   if (response) {
@@ -53,6 +55,7 @@ const deleteProduct = async (id) => {
   }
 };
 
+/** Busca un producto para editarlo en el formulario. */
 const editProduct = async (id) => {
   const product = await Product.findByPk(id);
 
@@ -62,6 +65,7 @@ const editProduct = async (id) => {
   productDescription.value = product.description;
 };
 
+/** Actualiza la lista de productos. */
 const updateList = async () => {
   products = await Product.findAll({
     order: [
@@ -71,6 +75,7 @@ const updateList = async () => {
   renderProducts(products);
 };
 
+/** Dibuja los productos en la paguina. */
 function renderProducts(tasks) {
   productsList.innerHTML = "";
   

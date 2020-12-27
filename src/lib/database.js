@@ -1,20 +1,30 @@
 const { Sequelize } = require('sequelize');
-const { database } = require('../config/config')
+const { driver, mysql, sqlite } = require('../config/database')
 
-// Option Sqlite: Passing parameters separately (sqlite)
-/*const sequelize  = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'path/to/database.sqlite'
-});*/
+function newSequelize() {
+  switch(driver) {
+    case "mysql":
+      return new Sequelize(
+        mysql.database, 
+        mysql.username, 
+        mysql.password, {
+          host: mysql.host,
+          dialect: mysql.dialect
+        }
+      );
+    
+    case "sqlite":
+      return new Sequelize({
+        dialect: sqlite.dialect,
+        storage: sqlite.storage
+      });
 
-const sequelize  = new Sequelize(
-  database.database, 
-  database.username, 
-  database.password, {
-    host: database.host,
-    dialect: database.dialect
+    default:
+      throw new Error("Driver " + driver + " no soportado");
   }
-);
+}
+
+const sequelize = newSequelize();
 
 module.exports = sequelize;
 
