@@ -1,3 +1,5 @@
+const { app } = require("electron");
+
 module.exports = {
 
     driver: "sqlite",
@@ -12,6 +14,6 @@ module.exports = {
 
     sqlite: {
         dialect: 'sqlite',
-        storage: 'path/to/database.sqlite'
+        storage: app.getAppPath() + '/path/to/database.sqlite'
     },
 }
