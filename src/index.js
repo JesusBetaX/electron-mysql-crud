@@ -1,5 +1,5 @@
 const { app } = require("electron");
-const { createWindow } = require("./app/main");
+const { createWindow } = require("./main");
 const sequelize = require('./lib/database.js');
 
 require('electron-reload')(__dirname);

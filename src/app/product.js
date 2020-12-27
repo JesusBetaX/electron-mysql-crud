@@ -1,6 +1,6 @@
 const { remote } = require("electron");
 const Product = remote.require("./model/product");
-const { notify } = remote.require("./app/main");
+const { notify } = remote.require("./main");
 
 
 const productForm = document.querySelector("#productForm");
