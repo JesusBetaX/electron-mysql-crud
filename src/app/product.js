@@ -22,7 +22,7 @@ window.onload = function() {
 productForm.addEventListener("submit", async (e) => {
   try {
     e.preventDefault();
-
+    a.caca();
     const product = {
       id: productId.value,
       name: productName.value,
@@ -40,7 +40,7 @@ productForm.addEventListener("submit", async (e) => {
     updateList();
 
   } catch (error) {
-    console.log(error);
+    notify("Se ha producidoun error", error);
   }
 });
 
