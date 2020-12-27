@@ -22,7 +22,7 @@ window.onload = function() {
 productForm.addEventListener("submit", async (e) => {
   try {
     e.preventDefault();
-    a.caca();
+    
     const product = {
       id: productId.value,
       name: productName.value,
