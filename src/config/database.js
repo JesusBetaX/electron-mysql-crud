@@ -3,7 +3,7 @@ module.exports = {
     driver: "mysql",
 
     mysql: {
-        dialect: "mysql",
+        dialect: "mysql", // "mariadb", 
         host: "localhost",
         database: "electrondb",
         username: "root",
